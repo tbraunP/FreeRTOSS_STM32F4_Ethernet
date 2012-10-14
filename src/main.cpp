@@ -13,11 +13,12 @@
 #include "core_cm4.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "stm32f4xx_it.h"
 
 GPIO_InitTypeDef GPIO_InitStructure;
 
 volatile uint32_t TimingDelay;
-
+void dDelay(uint32_t nTime);
 /**
   * @brief  Inserts a delay time.
   * @param  nTime: specifies the delay time length, in milliseconds.
@@ -28,6 +29,7 @@ void Delay(uint32_t nTime)
   TimingDelay = nTime;
 
   while(TimingDelay != 0);
+//	dDelay(100);
 }
 
 /**
@@ -122,7 +124,8 @@ int main(void) {
 
 	// activate systick (timebase 100 Hz -> 10 ms), using floating point else the
 	// result will be 0 of the division!
-	SysTick_Config(SystemCoreClock*(1/100.0));
+	SysTick_Config(SystemCoreClock*(1/1000.0));
+	//SysTick_Config(SystemCoreClock);
 
 	while (1) {
 		/* Set PD12 Green */

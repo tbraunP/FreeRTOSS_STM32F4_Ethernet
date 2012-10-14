@@ -19,6 +19,8 @@
 					<folderInfo id="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.debug.112089922." name="/" resourcePath="">
 						<toolChain id="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.toolchain.debug.1150677680" name="ARM Linux GCC (Summon)" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.toolchain.debug">
 							<option id="org.eclipse.cdt.cross.arm.gnu.summon.linux.option.debugging.level.214723959" name="Debug level" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.option.debugging.level" value="org.eclipse.cdt.cross.arm.gnu.base.option.debugging.level.max" valueType="enumerated"/>
+							<option id="org.eclipse.cdt.cross.arm.gnu.summon.linux.option.target.fpu.abi.1435972773" name="Float ABI" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.option.target.fpu.abi" value="org.eclipse.cdt.cross.arm.gnu.base.option.target.fpu.abi.hard" valueType="enumerated"/>
+							<option id="org.eclipse.cdt.cross.arm.gnu.summon.linux.option.target.fpu.unit.1995718060" name="FPU Type" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.option.target.fpu.unit" value="org.eclipse.cdt.cross.arm.gnu.base.option.target.fpu.unit.fpv4spd16" valueType="enumerated"/>
 							<targetPlatform id="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.platform.debug.1945365076" isAbstract="false" name="Linux Platform" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.platform.debug"/>
 							<builder buildPath="${workspace_loc:/BlinkieCPPLibDemo/Debug}" id="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.builder.debug.1167179897" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="ARM Summon Linux GNU Make builder" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.builder.debug"/>
 							<tool id="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.assembler.debug.1857820646" name="ARM Summon Linux GCC Assembler" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.assembler.debug">
@@ -132,7 +134,9 @@
 								</inputType>
 							</tool>
 							<tool id="org.eclipse.cdt.cross.arm.gnu.summon.linux.archiver.base.983996967" name="ARM Summon Linux GCC Archiver" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.archiver.base"/>
-							<tool id="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.createflash.release.1535484648" name="ARM Summon Linux GNU Create Flash Image" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.createflash.release"/>
+							<tool id="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.createflash.release.1535484648" name="ARM Summon Linux GNU Create Flash Image" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.createflash.release">
+								<option id="org.eclipse.cdt.cross.arm.gnu.createflash.out.choice.1876145801" name="Output file format (-O)" superClass="org.eclipse.cdt.cross.arm.gnu.createflash.out.choice" value="org.eclipse.cdt.cross.arm.gnu.createflash.out.choice.binary" valueType="enumerated"/>
+							</tool>
 							<tool id="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.createlisting.release.1669186299" name="ARM Summon Linux GNU Create Listing" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.createlisting.release"/>
 							<tool id="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.printsize.release.462593348" name="ARM Summon Linux GNU Print Size" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.printsize.release"/>
 						</toolChain>
