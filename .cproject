@@ -56,6 +56,7 @@
 									<listOptionValue builtIn="false" value="CMSIS"/>
 									<listOptionValue builtIn="false" value="STM32_PeriphLib"/>
 								</option>
+								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.gcsections.1019427502" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.gcsections" value="true" valueType="boolean"/>
 								<inputType id="org.eclipse.cdt.cross.arm.gnu.cpp.linker.input.1418461153" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -130,6 +131,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CMSIS/Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/STM32_PeriphLib/Debug}&quot;"/>
 								</option>
+								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.gcsections.607474678" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.gcsections" value="true" valueType="boolean"/>
 								<inputType id="org.eclipse.cdt.cross.arm.gnu.cpp.linker.input.1643643765" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -155,27 +157,6 @@
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="BlinkieCPPLibDemo.org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.1889070429" name="ARM Cross Target Application" projectType="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf"/>
 	</storageModule>
-	<storageModule moduleId="scannerConfiguration">
-		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		<scannerConfigBuildInfo instanceId="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.debug.112089922;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.debug.112089922.;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.assembler.debug.1857820646;org.eclipse.cdt.cross.arm.gnu.summon.linux.assembler.base.input.899391675">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.cross.arm.gnu.ARM_SUM_GCCManagedMakePerProjectProfileC"/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.debug.112089922;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.debug.112089922.;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.cpp.compiler.debug.502028865;org.eclipse.cdt.cross.arm.gnu.summon.linux.cpp.compiler.base.input.1406180015">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.cross.arm.gnu.ARM_SUM_GCCManagedMakePerProjectProfileCPP"/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.debug.112089922;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.debug.112089922.;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.c.compiler.debug.66259798;org.eclipse.cdt.cross.arm.gnu.summon.linux.c.compiler.base.input.1122053840">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.cross.arm.gnu.ARM_SUM_GCCManagedMakePerProjectProfileC"/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.release.834017438;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.release.834017438.;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.c.compiler.release.1700885637;org.eclipse.cdt.cross.arm.gnu.summon.linux.c.compiler.base.input.576248562">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.cross.arm.gnu.ARM_SUM_GCCManagedMakePerProjectProfileC"/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.release.834017438;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.release.834017438.;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.assembler.release.2120286959;org.eclipse.cdt.cross.arm.gnu.summon.linux.assembler.base.input.767393899">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.cross.arm.gnu.ARM_SUM_GCCManagedMakePerProjectProfileC"/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.release.834017438;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.release.834017438.;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.cpp.compiler.release.25588371;org.eclipse.cdt.cross.arm.gnu.summon.linux.cpp.compiler.base.input.525411942">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.cross.arm.gnu.ARM_SUM_GCCManagedMakePerProjectProfileCPP"/>
-		</scannerConfigBuildInfo>
-	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="refreshScope" versionNumber="2">
 		<configuration configurationName="Release">
@@ -186,4 +167,25 @@
 		</configuration>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.debug.112089922;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.debug.112089922.;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.c.compiler.debug.66259798;org.eclipse.cdt.cross.arm.gnu.summon.linux.c.compiler.base.input.1122053840">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.cross.arm.gnu.ARM_SUM_GCCManagedMakePerProjectProfileC"/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.release.834017438;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.release.834017438.;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.assembler.release.2120286959;org.eclipse.cdt.cross.arm.gnu.summon.linux.assembler.base.input.767393899">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.cross.arm.gnu.ARM_SUM_GCCManagedMakePerProjectProfileC"/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.release.834017438;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.release.834017438.;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.cpp.compiler.release.25588371;org.eclipse.cdt.cross.arm.gnu.summon.linux.cpp.compiler.base.input.525411942">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.cross.arm.gnu.ARM_SUM_GCCManagedMakePerProjectProfileCPP"/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.debug.112089922;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.debug.112089922.;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.assembler.debug.1857820646;org.eclipse.cdt.cross.arm.gnu.summon.linux.assembler.base.input.899391675">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.cross.arm.gnu.ARM_SUM_GCCManagedMakePerProjectProfileC"/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.debug.112089922;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.debug.112089922.;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.cpp.compiler.debug.502028865;org.eclipse.cdt.cross.arm.gnu.summon.linux.cpp.compiler.base.input.1406180015">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.cross.arm.gnu.ARM_SUM_GCCManagedMakePerProjectProfileCPP"/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.release.834017438;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.release.834017438.;org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.c.compiler.release.1700885637;org.eclipse.cdt.cross.arm.gnu.summon.linux.c.compiler.base.input.576248562">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.cross.arm.gnu.ARM_SUM_GCCManagedMakePerProjectProfileC"/>
+		</scannerConfigBuildInfo>
+	</storageModule>
 </cproject>
