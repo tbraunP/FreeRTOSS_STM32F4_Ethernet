@@ -113,6 +113,10 @@ void SysTick_Handler() {
 	TimingDelay_Decrement();
 }
 
+void DMA1_Stream6_IRQHandler(){
+	Q_UART_DMA_TXComplete();
+}
+
 /**
  * @}
  */

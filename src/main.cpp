@@ -15,9 +15,10 @@
 #include <stdlib.h>
 #include "stm32f4xx_it.h"
 
-GPIO_InitTypeDef GPIO_InitStructure;
 
+GPIO_InitTypeDef GPIO_InitStructure;
 volatile uint32_t TimingDelay;
+
 void dDelay(uint32_t nTime);
 /**
   * @brief  Inserts a delay time.
@@ -106,6 +107,9 @@ A aa;
 #endif
 
 int main(void) {
+	// Enable UART
+	Q_UART_init();
+
 #ifdef __cplusplus
 
 #endif
@@ -174,44 +178,6 @@ int main(void) {
 #ifdef __cplusplus
 		delete c;
 #endif
+		Q_UART_DMAsendZTString("DingDong\n");
 	}
 }
-
-#if 0
-extern uint32_t __heap_start__;
-extern uint32_t __heap_end__;
-
-
-void *_sbrk(int incr) {
-	static unsigned char *heap = NULL;
-	unsigned char *prev_heap;
-
-	if (heap == NULL ) {
-		// start address of heap
-		heap = (unsigned char *) &__heap_start__;
-	}
-	prev_heap = heap;
-
-	if ((heap + incr) >= (unsigned char *) &__heap_end__) {
-		return 0;
-	}
-	heap += incr;
-	return (void *) prev_heap;
-}
-
-void *operator new(size_t size) {
-	return malloc(size);
-}
-
-void *operator new[](size_t size) {
-	return malloc(size);
-}
-
-void operator delete(void *p) {
-	free(p);
-}
-
-void operator delete[](void *p) {
-	free(p);
-}
-#endif

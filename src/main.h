@@ -9,6 +9,7 @@
 #define MAIN_H_
 
 #include "syscalls/syscalls.h"
+#include "periph/uart.h"
 
 #ifdef __cplusplus
 extern "C" {
