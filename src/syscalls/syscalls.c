@@ -5,14 +5,16 @@
  *      Author: narf
  */
 #include <stdlib.h>
+#include <stdint.h>
 #include <unistd.h>
 #include <malloc.h>
 #include "stm32f4xx.h"
+#include "../periph/uart.h"
 
 /* set by linker -> value is undefined only the address of the variable is useful */
 #include "syscalls.h"
 
-void *_sbrk(int incr){
+void *_sbrk(int incr) {
 	static unsigned char *heap = NULL;
 	unsigned char *prev_heap;
 
@@ -59,7 +61,12 @@ void _exit(int status) {
 }
 
 _ssize_t _write_r(struct _reent *ptr, int fd, const void *buf, size_t cnt) {
-	return 0;
+	Q_UART_DMAsendString(buf, cnt);
+	return cnt;
+}
+
+int _open_r(struct _reent *ptr, const char *file, int flags, int mode) {
+	return 1;
 }
 
 int _close_r(struct _reent *ptr, int fd) {
@@ -78,6 +85,6 @@ off_t _lseek_r(struct _reent *ptr, int fd, off_t pos, int whence) {
 	return 0;
 }
 
-_ssize_t _read_r(struct _reent *ptr, int fd, void *buf, size_t cnt){
+_ssize_t _read_r(struct _reent *ptr, int fd, void *buf, size_t cnt) {
 	return 0;
 }

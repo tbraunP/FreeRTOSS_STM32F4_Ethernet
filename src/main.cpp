@@ -13,6 +13,7 @@
 #include "core_cm4.h"
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "stm32f4xx_it.h"
 
 
@@ -178,6 +179,7 @@ int main(void) {
 #ifdef __cplusplus
 		delete c;
 #endif
-		Q_UART_DMAsendZTString("DingDong\n");
+		//Q_UART_DMAsendZTString("DingDong\n");
+		printf("DingDong2\n");
 	}
 }
