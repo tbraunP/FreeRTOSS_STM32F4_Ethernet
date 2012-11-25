@@ -16,6 +16,8 @@
 
 #include "stm32f4xx_it.h"
 
+#include "periph/led.h"
+
 
 GPIO_InitTypeDef GPIO_InitStructure;
 volatile uint32_t TimingDelay;
@@ -114,18 +116,7 @@ int main(void) {
 #ifdef __cplusplus
 
 #endif
-	//printf("Test");
-	/* GPIOD Periph clock enable */
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
-
-	/* Configure PD12, 13, 14 and PD15 in output pushpull mode */
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14
-			| GPIO_Pin_15;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-	GPIO_Init(GPIOD, &GPIO_InitStructure);
+	LED_init();
 
 	// activate systick (timebase 100 Hz -> 10 ms), using floating point else the
 	// result will be 0 of the division!
@@ -133,19 +124,16 @@ int main(void) {
 	//SysTick_Config(SystemCoreClock);
 
 	while (1) {
-		/* Set PD12 Green */
-		GPIOD ->BSRRL = GPIO_Pin_12;
-		/* Reset PD13 Orange, PD14 Red, PD15 Blue */GPIOD ->BSRRH = GPIO_Pin_13
-				| GPIO_Pin_14 | GPIO_Pin_15;
+		LED_On(LED_GREEN);
+		LED_Off(LED_ORANGE | LED_BLUE | LED_RED);
 		Delay(100L);
 
 #ifdef __cplusplus
 		if(a.getI()==10 && aa.getI()==10)
 #endif
 		{
-			/* Set PD13 Orange */GPIOD ->BSRRL = GPIO_Pin_13;
-			/* Reset PD12 Green, PD14 Red, PD15 Blue */GPIOD ->BSRRH =
-					GPIO_Pin_12 | GPIO_Pin_14 | GPIO_Pin_15;
+			LED_On(LED_ORANGE);
+			LED_Off(LED_GREEN | LED_BLUE | LED_RED);
 			Delay(100L);
 		}
 
@@ -154,10 +142,8 @@ int main(void) {
 		if(b->getI()==10)
 #endif
 		{
-			/* Set PD14 Red */
-			GPIOD ->BSRRL = GPIO_Pin_14;
-			/* Reset PD12 Green, PD13 Orange, PD15 Blue */GPIOD ->BSRRH =
-					GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_15;
+			LED_On(LED_RED);
+			LED_Off(LED_GREEN | LED_BLUE | LED_ORANGE);
 			Delay(100L);
 		}
 #ifdef __cplusplus
@@ -170,10 +156,8 @@ int main(void) {
 		if(c->getF()==20)
 #endif
 		{
-			/* Set PD15 Blue */
-			GPIOD ->BSRRL = GPIO_Pin_15;
-			/* Reset PD12 Green, PD13 Orange, PD14 Red */GPIOD ->BSRRH =
-					GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14;
+			LED_On(LED_BLUE);
+			LED_Off(LED_GREEN | LED_RED | LED_ORANGE);
 			Delay(100L);
 		}
 #ifdef __cplusplus
