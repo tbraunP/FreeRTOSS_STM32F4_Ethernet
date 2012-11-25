@@ -177,7 +177,7 @@ void Q_UART_DMAsendString(const char* buf, size_t cnt) {
 		// copy data to heap incl. \0 at the end
 		char* data = (char*) malloc(sizeof(char) * (cnt + 1));
 		memcpy(data, buf, sizeof(char) * (cnt));
-		data[cnt] = '0';
+		data[cnt] = '\0';
 
 		if (lst == NULL ) {
 			lst = list_create(data);
