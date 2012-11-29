@@ -23,6 +23,9 @@ void NMI_Handler(void) {
 }
 
 /**
+ * See also http://blog.frankvh.com/2011/12/07/cortex-m3-m4-hard-fault-handler/ to get the idea
+ * the handler is based on.
+ *
  * @brief  This function handles Hard Fault exception.
  * @param  None
  * @retval None
