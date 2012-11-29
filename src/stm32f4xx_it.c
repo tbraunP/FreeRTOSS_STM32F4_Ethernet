@@ -1,5 +1,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include <stdint.h>
+#include <stdio.h>
 #include "stm32f4xx.h"
 
 // include needed since extern "C" must be considered by compiler during creating
@@ -26,59 +27,6 @@
 /******************************************************************************/
 /*            Cortex-M4 Processor Exceptions Handlers                         */
 /******************************************************************************/
-
-/**
- * @brief   This function handles NMI exception.
- * @param  None
- * @retval None
- */
-void NMI_Handler(void) {
-}
-
-/**
- * @brief  This function handles Hard Fault exception.
- * @param  None
- * @retval None
- */
-void HardFault_Handler(void) {
-	/* Go to infinite loop when Hard Fault exception occurs */
-	TimingDelay_Decrement();
-	while (1) {
-	}
-}
-
-/**
- * @brief  This function handles Memory Manage exception.
- * @param  None
- * @retval None
- */
-void MemManage_Handler(void) {
-	/* Go to infinite loop when Memory Manage exception occurs */
-	while (1) {
-	}
-}
-
-/**
- * @brief  This function handles Bus Fault exception.
- * @param  None
- * @retval None
- */
-void BusFault_Handler(void) {
-	/* Go to infinite loop when Bus Fault exception occurs */
-	while (1) {
-	}
-}
-
-/**
- * @brief  This function handles Usage Fault exception.
- * @param  None
- * @retval None
- */
-void UsageFault_Handler(void) {
-	/* Go to infinite loop when Usage Fault exception occurs */
-	while (1) {
-	}
-}
 
 /**
  * @brief  This function handles SVCall exception.
@@ -113,7 +61,7 @@ void SysTick_Handler() {
 	TimingDelay_Decrement();
 }
 
-void DMA1_Stream6_IRQHandler(){
+void DMA1_Stream6_IRQHandler() {
 	Q_UART_DMA_TXComplete();
 }
 
