@@ -18,6 +18,9 @@
 
 #include "periph/led.h"
 
+#include <iostream>
+#include <fstream>
+
 
 GPIO_InitTypeDef GPIO_InitStructure;
 volatile uint32_t TimingDelay;
@@ -64,6 +67,8 @@ void dDelay(uint32_t nTime)
 class A {
 private:
 	int i;
+	static A nnn;
+
 public:
 	A():i(10) {
 
@@ -77,6 +82,9 @@ public:
 		return i;
 	};
 };
+
+A A::nnn{};
+
 
 class B {
 public:
@@ -104,6 +112,8 @@ public:
 		return f;
 	};
 };
+
+static A nnn{};
 
 A a;
 A aa;
@@ -164,6 +174,7 @@ int main(void) {
 		delete c;
 #endif
 		//Q_UART_DMAsendZTString("DingDong\n");
+		std::cout << "Yeah\n";
 		printf("DingDong2\n");
 	}
 }
