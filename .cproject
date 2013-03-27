@@ -50,7 +50,7 @@
 								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.scriptfile.1028127462" name="Script file (-T)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.scriptfile" value="/home/pyro/workspace/workspace_STM32/CMSIS/stm32f4_flash.ld" valueType="string"/>
 								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.paths.1951116341" name="Library search path (-L)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CMSIS/Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="/opt/summon-arm/arm-none-eabi/lib/thumb/cortex-m4/float-abi-hard/fpuv4-sp-d16"/>
+									<listOptionValue builtIn="false" value="/opt/arm/arm-none-eabi/lib/fpu"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/STM32_PeriphLib/Debug}&quot;"/>
 								</option>
 								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.libs.1020934486" name="Libraries (-l)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.libs" valueType="libs">
@@ -60,9 +60,9 @@
 								</option>
 								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.gcsections.1019427502" name="Remove unused sections (-Xlinker --gc-sections)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.gcsections" value="true" valueType="boolean"/>
 								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.otherobjs.1229221240" name="Other objects" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.otherobjs" valueType="userObjs">
-									<listOptionValue builtIn="false" value="/opt/arm/arm-none-eabi/lib/thumb/cortex-m4/float-abi-hard/fpuv4-sp-d16/crt0.o"/>
-									<listOptionValue builtIn="false" value="/opt/arm/lib/gcc/arm-none-eabi/4.7.2/thumb/cortex-m4/float-abi-hard/fpuv4-sp-d16/crtbegin.o"/>
-									<listOptionValue builtIn="false" value="/opt/arm/lib/gcc/arm-none-eabi/4.7.2/thumb/cortex-m4/float-abi-hard/fpuv4-sp-d16/crtend.o"/>
+									<listOptionValue builtIn="false" value="/opt/arm/arm-none-eabi/lib/thumb/cortex-m4/crt0.o"/>
+									<listOptionValue builtIn="false" value="/opt/arm/lib/gcc/arm-none-eabi/4.7.3/thumb/cortex-m4/float-abi-hard/fpuv4-sp-d16/crtbegin.o"/>
+									<listOptionValue builtIn="false" value="/opt/arm/lib/gcc/arm-none-eabi/4.7.3/thumb/cortex-m4/float-abi-hard/fpuv4-sp-d16/crtend.o"/>
 								</option>
 								<inputType id="org.eclipse.cdt.cross.arm.gnu.cpp.linker.input.1418461153" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>

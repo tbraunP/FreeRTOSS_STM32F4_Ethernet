@@ -60,7 +60,6 @@ void dDelay(uint32_t nTime)
   while(--nTime > 0);
 }
 
-
 // C++ test case
 #ifdef __cplusplus
 
@@ -115,9 +114,11 @@ public:
 
 static A nnn{};
 
+
 A a;
 A aa;
 #endif
+
 
 int main(void) {
 	// Enable UART
@@ -137,6 +138,7 @@ int main(void) {
 		LED_On(LED_GREEN);
 		LED_Off(LED_ORANGE | LED_BLUE | LED_RED);
 		Delay(100L);
+
 
 #ifdef __cplusplus
 		if(a.getI()==10 && aa.getI()==10)
@@ -174,7 +176,8 @@ int main(void) {
 		delete c;
 #endif
 		//Q_UART_DMAsendZTString("DingDong\n");
-		std::cout << "Yeah\n";
+		//std::cout << "Yeah\n";
 		printf("DingDong2\n");
+
 	}
 }
