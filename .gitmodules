@@ -1,0 +1,6 @@
+[submodule "STM32F4_LIB_CMSIS"]
+	path = STM32F4_LIB_CMSIS
+	url = https://github.com/tbraunP/STM32F4_LIB_CMSIS.git
+[submodule "STM32F4_LIB_PeriphLib"]
+	path = STM32F4_LIB_PeriphLib
+	url = https://github.com/tbraunP/STM32F4_LIB_PeriphLib.git
