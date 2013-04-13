@@ -26,40 +26,54 @@
 							<tool id="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.assembler.debug.1857820646" name="ARM Summon Linux GCC Assembler" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.assembler.debug">
 								<inputType id="org.eclipse.cdt.cross.arm.gnu.summon.linux.assembler.base.input.899391675" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.assembler.base.input"/>
 							</tool>
-							<tool id="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.c.compiler.debug.66259798" name="ARM Summon Linux GCC C Compiler" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.c.compiler.debug">
+							<tool command="arm-none-eabi-gcc" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}" id="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.c.compiler.debug.66259798" name="ARM Summon Linux GCC C Compiler" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.c.compiler.debug">
 								<option id="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.level.1015852703" name="Optimization level" superClass="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.level" value="org.eclipse.cdt.cross.arm.gnu.base.option.optimization.level.none" valueType="enumerated"/>
 								<option id="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.include.paths.1975970469" name="Include paths (-I)" superClass="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CMSIS/inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/STM32_PeriphLib/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/STM32F4_LIB_CMSIS/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/STM32F4_LIB_PeriphLib/inc}&quot;"/>
 								</option>
 								<option id="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.misc.std.1119280331" name="Language Standard" superClass="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.misc.std" value="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.misc.std.gnu99" valueType="enumerated"/>
+								<option id="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.datasections.9729820" name="Data sections (-fdata-sections)" superClass="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.datasections" value="true" valueType="boolean"/>
+								<option id="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.functionsections.228225192" name="Function sections (-ffunction-sections)" superClass="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.functionsections" value="true" valueType="boolean"/>
+								<option id="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.shortenums.2083325273" name="Short enumerations (-fshort-enums)" superClass="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.shortenums" value="true" valueType="boolean"/>
+								<option id="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.preprocessor.def.1894821215" superClass="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.preprocessor.def" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="HSE_VALUE=8000000"/>
+									<listOptionValue builtIn="false" value="__FPU_PRESENT"/>
+									<listOptionValue builtIn="false" value="__FPU_USED"/>
+									<listOptionValue builtIn="false" value="USE_FULL_ASSERT"/>
+									<listOptionValue builtIn="false" value="USE_STDPERIPH_DRIVER"/>
+									<listOptionValue builtIn="false" value="USE_STM32_DISCOVERY"/>
+								</option>
 								<inputType id="org.eclipse.cdt.cross.arm.gnu.summon.linux.c.compiler.base.input.1122053840" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.c.compiler.base.input"/>
 							</tool>
 							<tool id="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.cpp.compiler.debug.502028865" name="ARM Summon Linux GCC C++ Compiler" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.cpp.compiler.debug">
 								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.optimization.level.668214013" name="Optimization level" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.optimization.level" value="org.eclipse.cdt.cross.arm.gnu.base.option.optimization.level.none" valueType="enumerated"/>
 								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.include.paths.1827363771" name="Include paths (-I)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CMSIS/inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/STM32_PeriphLib/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/STM32F4_LIB_CMSIS/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/STM32F4_LIB_PeriphLib/inc}&quot;"/>
 								</option>
 								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.misc.std.714571086" name="Language Standard" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.misc.std" value="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.misc.std.gnucpp0x" valueType="enumerated"/>
+								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.optimization.shortenums.803081434" name="Short enumerations (-fshort-enums)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.optimization.shortenums" value="true" valueType="boolean"/>
+								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.optimization.functionsections.474558560" name="Function sections (-ffunction-sections)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.optimization.functionsections" value="true" valueType="boolean"/>
+								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.optimization.datasections.127254203" name="Data sections (-fdata-sections)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.optimization.datasections" value="true" valueType="boolean"/>
+								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.preprocessor.def.1419411392" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="USE_STM32_DISCOVERY"/>
+									<listOptionValue builtIn="false" value="USE_STDPERIPH_DRIVER"/>
+									<listOptionValue builtIn="false" value="USE_FULL_ASSERT"/>
+									<listOptionValue builtIn="false" value="HSE_VALUE=8000000"/>
+									<listOptionValue builtIn="false" value="__FPU_PRESENT=1"/>
+									<listOptionValue builtIn="false" value="__FPU_USED=1"/>
+								</option>
 								<inputType id="org.eclipse.cdt.cross.arm.gnu.summon.linux.cpp.compiler.base.input.1406180015" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.cpp.compiler.base.input"/>
 							</tool>
 							<tool id="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.c.linker.debug.75772476" name="ARM Summon Linux GCC C Linker" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.c.linker.debug"/>
 							<tool id="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.cpp.linker.debug.586691015" name="ARM Summon Linux GCC C++ Linker" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.cpp.linker.debug">
-								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.nostart.1466237671" name="Do not use standard start files (-nostartfiles)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.nostart" value="true" valueType="boolean"/>
-								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.scriptfile.1028127462" name="Script file (-T)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.scriptfile" value="/home/pyro/workspace/workspace_STM32/CMSIS/stm32f4_flash.ld" valueType="string"/>
-								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.paths.1951116341" name="Library search path (-L)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.paths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CMSIS/Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="/opt/arm/arm-none-eabi/lib/fpu"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/STM32_PeriphLib/Debug}&quot;"/>
-								</option>
-								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.libs.1020934486" name="Libraries (-l)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.libs" valueType="libs">
-									<listOptionValue builtIn="false" value="stdc++"/>
-									<listOptionValue builtIn="false" value="CMSIS"/>
-									<listOptionValue builtIn="false" value="STM32_PeriphLib"/>
-								</option>
+								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.nostart.1466237671" name="Do not use standard start files (-nostartfiles)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.nostart" value="false" valueType="boolean"/>
+								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.scriptfile.1028127462" name="Script file (-T)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.scriptfile" value="/home/pyro/Projekte/STM32F4Tools/EclipseWorkspace/BlinkieCPPLibDemo2CMake/STM32F4_LIB_CMSIS/stm32f4_flash.ld" valueType="string"/>
+								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.paths.1951116341" name="Library search path (-L)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.paths" valueType="libPaths"/>
+								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.libs.1020934486" name="Libraries (-l)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.libs" valueType="libs"/>
 								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.gcsections.1019427502" name="Remove unused sections (-Xlinker --gc-sections)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.gcsections" value="true" valueType="boolean"/>
-								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.otherobjs.1229221240" name="Other objects" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.otherobjs" valueType="userObjs"/>
+								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.otherobjs.1229221240" name="Other objects" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.otherobjs"/>
 								<inputType id="org.eclipse.cdt.cross.arm.gnu.cpp.linker.input.1418461153" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -74,7 +88,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="CMakeFiles|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
@@ -109,32 +123,31 @@
 							<tool id="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.c.compiler.release.1700885637" name="ARM Summon Linux GCC C Compiler" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.c.compiler.release">
 								<option id="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.level.1322022792" name="Optimization level" superClass="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.level" value="org.eclipse.cdt.cross.arm.gnu.base.option.optimization.level.size" valueType="enumerated"/>
 								<option id="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.include.paths.378581762" name="Include paths (-I)" superClass="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CMSIS/inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/STM32_PeriphLib/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/STM32F4_LIB_CMSIS/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/STM32F4_LIB_PeriphLib/inc}&quot;"/>
 								</option>
+								<option id="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.datasections.1145411539" name="Data sections (-fdata-sections)" superClass="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.datasections" value="true" valueType="boolean"/>
+								<option id="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.functionsections.244373474" name="Function sections (-ffunction-sections)" superClass="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.functionsections" value="true" valueType="boolean"/>
+								<option id="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.shortenums.1426467691" name="Short enumerations (-fshort-enums)" superClass="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.shortenums" value="true" valueType="boolean"/>
 								<inputType id="org.eclipse.cdt.cross.arm.gnu.summon.linux.c.compiler.base.input.576248562" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.c.compiler.base.input"/>
 							</tool>
 							<tool id="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.cpp.compiler.release.25588371" name="ARM Summon Linux GCC C++ Compiler" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.cpp.compiler.release">
 								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.optimization.level.109599326" name="Optimization level" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.optimization.level" value="org.eclipse.cdt.cross.arm.gnu.base.option.optimization.level.size" valueType="enumerated"/>
 								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.include.paths.1477013503" name="Include paths (-I)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CMSIS/inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/STM32_PeriphLib/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/STM32F4_LIB_CMSIS/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/STM32F4_LIB_PeriphLib/inc}&quot;"/>
 								</option>
+								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.optimization.shortenums.1830155767" name="Short enumerations (-fshort-enums)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.optimization.shortenums" value="true" valueType="boolean"/>
+								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.optimization.functionsections.1377357313" name="Function sections (-ffunction-sections)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.optimization.functionsections" value="true" valueType="boolean"/>
+								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.optimization.datasections.925093352" name="Data sections (-fdata-sections)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.optimization.datasections" value="true" valueType="boolean"/>
 								<inputType id="org.eclipse.cdt.cross.arm.gnu.summon.linux.cpp.compiler.base.input.525411942" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.cpp.compiler.base.input"/>
 							</tool>
 							<tool id="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.c.linker.release.1597401315" name="ARM Summon Linux GCC C Linker" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.c.linker.release"/>
 							<tool id="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.cpp.linker.release.207583375" name="ARM Summon Linux GCC C++ Linker" superClass="org.eclipse.cdt.cross.arm.gnu.summon.linux.elf.cpp.linker.release">
 								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.nostart.275160336" name="Do not use standard start files (-nostartfiles)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.nostart" value="true" valueType="boolean"/>
 								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.scriptfile.689294754" name="Script file (-T)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.scriptfile" value="/home/pyro/workspace/workspace_STM32/CMSIS/stm32f4_flash.ld" valueType="string"/>
-								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.libs.1251078239" name="Libraries (-l)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.libs" valueType="libs">
-									<listOptionValue builtIn="false" value="CMSIS"/>
-									<listOptionValue builtIn="false" value="libstdc++"/>
-									<listOptionValue builtIn="false" value="STM32_PeriphLib"/>
-								</option>
-								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.paths.582652301" name="Library search path (-L)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.paths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CMSIS/Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/STM32_PeriphLib/Debug}&quot;"/>
-								</option>
+								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.libs.1251078239" name="Libraries (-l)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.libs" valueType="libs"/>
+								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.paths.582652301" name="Library search path (-L)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.paths" valueType="libPaths"/>
 								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.gcsections.607474678" name="Remove unused sections (-Xlinker --gc-sections)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.link.option.gcsections" value="true" valueType="boolean"/>
 								<inputType id="org.eclipse.cdt.cross.arm.gnu.cpp.linker.input.1643643765" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -150,7 +163,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="CMakeFiles|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
