@@ -42,7 +42,7 @@ set(CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS)
 SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS}  -g")
 SET(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS} -g")
 
-# add libs in subdirectory
+# add libs in subdirectory using their CMakefile to build the libs
 add_subdirectory (lib/STM32F4_LIB_CMSIS)
 add_subdirectory (lib/STM32F4_LIB_PeriphLib)
 
@@ -58,6 +58,8 @@ include_directories("lib/FreeRTOSV7.4.0/FreeRTOS/Source/portable/GCC/ARM_CM4F")
 AUX_SOURCE_DIRECTORY("lib/FreeRTOSV7.4.0/FreeRTOS/Source/portable/GCC/ARM_CM4F" FREERTOS_PORT_SRCS)
 AUX_SOURCE_DIRECTORY("lib/FreeRTOSV7.4.0/FreeRTOS/Source" FREERTOS_SRCS)
 
+SET(FREERTOS ${FREERTOS_SRCS} ${FREERTOS_PORT_SRCS})
+
 # lwIP Stack 
 ## Includes
 include_directories("lib/lwip_v1.3.2/src/include")
@@ -70,11 +72,12 @@ AUX_SOURCE_DIRECTORY("lib/lwip_v1.3.2/src/core/ipv4" lwipCORE_SRC_IPV4)
 AUX_SOURCE_DIRECTORY("lib/lwip_v1.3.2/src/netif" lwip_NETIF)
 
 # lwip port for stm32f4_flash
-include_directories("lib/lwip_v1.3.2/port/STM32F4x7/arch")
+include_directories("lib/lwip_v1.3.2/port/STM32F4x7")
 include_directories("lib/lwip_v1.3.2/port/STM32F4x7/FreeRTOS")
 
 AUX_SOURCE_DIRECTORY("lib/lwip_v1.3.2/port/STM32F4x7/FreeRTOS" lwip_STM32F4x7)
 
+SET(lwipSRC ${lwip_API_SRC} ${lwip_CORE} ${lwipCORE_SRC_IPV4} ${lwip_NETIF} ${lwip_STM32F4x7})
 
 # STM32F4x7_ETH_Driver
 include_directories("lib/STM32F4x7_ETH_Driver/inc/")
@@ -83,17 +86,18 @@ AUX_SOURCE_DIRECTORY("lib/STM32F4x7_ETH_Driver/src" STM32F4x7_ETH_DRIVER)
 
 
 # default files
+include_directories("inc")
 include_directories("src")
 
 # add source files from folder
-AUX_SOURCE_DIRECTORY("src/" SRCS)
+AUX_SOURCE_DIRECTORY("src" SRCS)
 #AUX_SOURCE_DIRECTORY("src/syscalls/" SRCSCalls)
 #AUX_SOURCE_DIRECTORY("src/periph/" SRCSPeri)
 #AUX_SOURCE_DIRECTORY("src/util/" SRCSUtil)
 
 
 # define target
-add_executable(${TARGET}.elf ${SRCS} ${FREERTOS_SRCS} ${FREERTOS_PORT_SRCS})
+add_executable(${TARGET}.elf ${SRCS} ${FREERTOS} ${lwipSRC} ${STM32F4x7_ETH_DRIVER})
 target_link_libraries (${TARGET}.elf STM32F4_LIB_CMSIS STM32F4_LIB_PeriphLib)
 
 make_firmware(${TARGET}.elf)
