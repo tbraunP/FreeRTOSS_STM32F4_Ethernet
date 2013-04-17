@@ -37,7 +37,7 @@
 
 //#define USE_LCD        /* enable LCD  */  
 #define USE_DHCP       /* enable DHCP, if disabled static address is used*/
-   
+
 /* Uncomment SERIAL_DEBUG to enables retarget of printf to  serial port (COM1 on STM32 evalboard) 
    for debug purpose */   
 //#define SERIAL_DEBUG    

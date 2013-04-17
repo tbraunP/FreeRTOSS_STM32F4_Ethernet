@@ -26,8 +26,9 @@
 #include "ethernetif.h"
 #include "main.h"
 #include "netconf.h"
-#include "tcpip.h"
+#include "lwip/tcpip.h"
 #include <stdio.h>
+#include "stm32f4_discovery.h"
 
 /* Private typedef -----------------------------------------------------------*/
 typedef enum 

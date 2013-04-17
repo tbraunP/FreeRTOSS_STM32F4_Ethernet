@@ -22,11 +22,11 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx.h"
-#include "stm324xg_eval.h"
 #include "serial_debug.h"
 #include <stdio.h>
 
 #ifdef SERIAL_DEBUG
+#include "stm324xg_eval.h"
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 #ifdef __GNUC__

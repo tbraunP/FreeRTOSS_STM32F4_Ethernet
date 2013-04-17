@@ -27,6 +27,7 @@
 #include "task.h"
 #include "lwip/tcpip.h"
 #include "serial_debug.h"
+#include "stm32f4_discovery.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/

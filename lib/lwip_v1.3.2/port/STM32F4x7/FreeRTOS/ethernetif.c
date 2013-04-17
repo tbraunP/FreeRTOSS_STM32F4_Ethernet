@@ -42,6 +42,8 @@
  * search-and-replace for the word "ethernetif" to replace it with
  * something that better describes your network interface.
  */
+#include "FreeRTOS.h"
+#include "mpu_wrappers.h"
 
 #include "lwip/opt.h"
 #include "lwip/def.h"
@@ -49,7 +51,7 @@
 #include "lwip/pbuf.h"
 #include "lwip/sys.h"
 #include "netif/etharp.h"
-#include "err.h"
+#include "lwip/err.h"
 #include "ethernetif.h"
 
 #include "main.h"
