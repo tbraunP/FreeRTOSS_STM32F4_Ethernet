@@ -54,9 +54,32 @@ include_directories("lib/STM32F4_LIB_PeriphLib/inc")
 include_directories("lib/FreeRTOSV7.4.0/FreeRTOS/Source/include")
 include_directories("lib/FreeRTOSV7.4.0/FreeRTOS/Source/portable/GCC/ARM_CM4F")
 
-# freeRTOS ressource files
+# freeRTOS architecture ressource files
 AUX_SOURCE_DIRECTORY("lib/FreeRTOSV7.4.0/FreeRTOS/Source/portable/GCC/ARM_CM4F" FREERTOS_PORT_SRCS)
 AUX_SOURCE_DIRECTORY("lib/FreeRTOSV7.4.0/FreeRTOS/Source" FREERTOS_SRCS)
+
+# lwIP Stack 
+## Includes
+include_directories("lib/lwip_v1.3.2/src/include")
+include_directories("lib/lwip_v1.3.2/src/include/ipv4")
+
+# add files to compile
+AUX_SOURCE_DIRECTORY("lib/lwip_v1.3.2/src/api" lwip_API_SRC)
+AUX_SOURCE_DIRECTORY("lib/lwip_v1.3.2/src/core" lwip_CORE)
+AUX_SOURCE_DIRECTORY("lib/lwip_v1.3.2/src/core/ipv4" lwipCORE_SRC_IPV4)
+AUX_SOURCE_DIRECTORY("lib/lwip_v1.3.2/src/netif" lwip_NETIF)
+
+# lwip port for stm32f4_flash
+include_directories("lib/lwip_v1.3.2/port/STM32F4x7/arch")
+include_directories("lib/lwip_v1.3.2/port/STM32F4x7/FreeRTOS")
+
+AUX_SOURCE_DIRECTORY("lib/lwip_v1.3.2/port/STM32F4x7/FreeRTOS" lwip_STM32F4x7)
+
+
+# STM32F4x7_ETH_Driver
+include_directories("lib/STM32F4x7_ETH_Driver/inc/")
+
+AUX_SOURCE_DIRECTORY("lib/STM32F4x7_ETH_Driver/src" STM32F4x7_ETH_DRIVER)
 
 
 # default files
