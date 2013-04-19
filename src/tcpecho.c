@@ -66,16 +66,16 @@ static void tcpecho_thread(void *arg)
       while (1) 
       {
         /* Grab new connection. */
-        newconn = netconn_accept(conn);
+        err_t xErr = netconn_accept(conn, &newconn);
     
         /* Process the new connection. */
-        if (newconn) 
+        if (xErr== ERR_OK) 
         {
           struct netbuf *buf;
           void *data;
           u16_t len;
       
-          while ((buf = netconn_recv(newconn)) != NULL) 
+          while ((xErr = netconn_recv(newconn, &buf)) == ERR_OK) 
           {
             do 
             {

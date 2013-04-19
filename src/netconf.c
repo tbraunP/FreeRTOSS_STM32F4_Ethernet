@@ -23,7 +23,7 @@
 #include "lwip/mem.h"
 #include "lwip/memp.h"
 #include "lwip/dhcp.h"
-#include "ethernetif.h"
+#include "arch/ethernetif.h"
 #include "main.h"
 #include "netconf.h"
 #include "lwip/tcpip.h"

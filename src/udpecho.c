@@ -48,6 +48,7 @@ static unsigned short port;
 /*-----------------------------------------------------------------------------------*/
 static void udpecho_thread(void *arg)
 {
+  /*
   err_t err;
   
   LWIP_UNUSED_ARG(arg);
@@ -81,12 +82,12 @@ static void udpecho_thread(void *arg)
   else
   {
     printf("can create new UDP netconn");
-  }
+  }*/
 }
 /*-----------------------------------------------------------------------------------*/
 void udpecho_init(void)
 {
-  sys_thread_new("udpecho_thread", udpecho_thread, NULL, DEFAULT_THREAD_STACKSIZE,UDPECHO_THREAD_PRIO );
+  //sys_thread_new("udpecho_thread", udpecho_thread, NULL, DEFAULT_THREAD_STACKSIZE,UDPECHO_THREAD_PRIO );
 }
 
 #endif /* LWIP_NETCONN */

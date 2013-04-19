@@ -4,3 +4,9 @@
 [submodule "lib/STM32F4_LIB_PeriphLib"]
 	path = lib/STM32F4_LIB_PeriphLib
 	url = https://github.com/tbraunP/STM32F4_LIB_PeriphLib.git
+[submodule "lib/lwipCore"]
+	path = lib/lwipCore
+	url = git://git.savannah.nongnu.org/lwip.git
+[submodule "doc/lwip-contrib"]
+	path = doc/lwip-contrib
+	url = git://git.savannah.nongnu.org/lwip/lwip-contrib.git

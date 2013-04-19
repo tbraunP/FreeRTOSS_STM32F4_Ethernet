@@ -62,22 +62,24 @@ SET(FREERTOS ${FREERTOS_SRCS} ${FREERTOS_PORT_SRCS})
 
 # lwIP Stack 
 ## Includes
-include_directories("lib/lwip_v1.3.2/src/include")
-include_directories("lib/lwip_v1.3.2/src/include/ipv4")
+include_directories("lib/lwipCore/src/include")
+include_directories("lib/lwipCore/src/include/ipv4")
+include_directories("lib/lwipCore/src/include/ipv6")
 
 # add files to compile
-AUX_SOURCE_DIRECTORY("lib/lwip_v1.3.2/src/api" lwip_API_SRC)
-AUX_SOURCE_DIRECTORY("lib/lwip_v1.3.2/src/core" lwip_CORE)
-AUX_SOURCE_DIRECTORY("lib/lwip_v1.3.2/src/core/ipv4" lwipCORE_SRC_IPV4)
-AUX_SOURCE_DIRECTORY("lib/lwip_v1.3.2/src/netif" lwip_NETIF)
+AUX_SOURCE_DIRECTORY("lib/lwipCore/src/api" lwip_API_SRC)
+AUX_SOURCE_DIRECTORY("lib/lwipCore/src/core" lwip_CORE)
+AUX_SOURCE_DIRECTORY("lib/lwipCore/src/core/ipv4" lwipCORE_SRC_IPV4)
+AUX_SOURCE_DIRECTORY("lib/lwipCore/src/core/ipv6" lwipCORE_SRC_IPV6)
+AUX_SOURCE_DIRECTORY("lib/lwipCore/src/netif" lwip_NETIF)
 
-# lwip port for stm32f4_flash
-include_directories("lib/lwip_v1.3.2/port/STM32F4x7")
-include_directories("lib/lwip_v1.3.2/port/STM32F4x7/FreeRTOS")
+# lwip portage code for stm32f4_flash
+include_directories("lib/lwip_STM32f4Port/port/STM32F4x7")
+include_directories("lib/lwip_STM32f4Port/port/STM32F4x7/FreeRTOS")
 
-AUX_SOURCE_DIRECTORY("lib/lwip_v1.3.2/port/STM32F4x7/FreeRTOS" lwip_STM32F4x7)
+AUX_SOURCE_DIRECTORY("lib/lwip_STM32f4Port/port/STM32F4x7/FreeRTOS" lwip_STM32F4x7)
 
-SET(lwipSRC ${lwip_API_SRC} ${lwip_CORE} ${lwipCORE_SRC_IPV4} ${lwip_NETIF} ${lwip_STM32F4x7})
+SET(lwipSRC ${lwip_API_SRC} ${lwip_CORE} ${lwipCORE_SRC_IPV4} ${lwipCORE_SRC_IPV6} ${lwip_NETIF} ${lwip_STM32F4x7})
 
 # STM32F4x7_ETH_Driver
 include_directories("lib/STM32F4x7_ETH_Driver/inc/")
