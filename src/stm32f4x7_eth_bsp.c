@@ -36,6 +36,7 @@ __IO uint8_t EthLinkStatus = 0;
 
 /* Private function prototypes -----------------------------------------------*/
 static void ETH_GPIO_Config(void);
+static void ETH_NVIC_Config(void);
 static void ETH_MACDMA_Config(void);
 
 /* Private functions ---------------------------------------------------------*/
@@ -52,6 +53,9 @@ void ETH_BSP_Config(void)
   /* Configure the GPIO ports for ethernet pins */
   ETH_GPIO_Config();
   
+  /* Config NVIC for Ethernet */
+  ETH_NVIC_Config();
+
   /* Configure the Ethernet MAC/DMA */
   ETH_MACDMA_Config();
 
@@ -144,6 +148,9 @@ static void ETH_MACDMA_Config(void)
 
   /* Configure Ethernet */
   EthInitStatus = ETH_Init(&ETH_InitStructure, DP83848_PHY_ADDRESS);
+
+  /* Enable the Ethernet Rx Interrupt */
+  ETH_DMAITConfig(ETH_DMA_IT_NIS | ETH_DMA_IT_R, ENABLE);
 }
 
 /**
@@ -257,6 +264,26 @@ void ETH_GPIO_Config(void)
   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
   GPIO_Init(GPIOI, &GPIO_InitStructure);
   GPIO_PinAFConfig(GPIOI, GPIO_PinSource10, GPIO_AF_ETH);
+}
+
+/**
+  * @brief  Configures and enable the Ethernet global interrupt.
+  * @param  None
+  * @retval None
+  */
+void ETH_NVIC_Config(void)
+{
+  NVIC_InitTypeDef   NVIC_InitStructure;
+
+  /* 2 bit for pre-emption priority, 2 bits for subpriority */
+  NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); 
+  
+  /* Enable the Ethernet global Interrupt */
+  NVIC_InitStructure.NVIC_IRQChannel = ETH_IRQn;
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&NVIC_InitStructure);    
 }
 
 /**
