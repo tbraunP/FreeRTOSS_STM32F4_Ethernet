@@ -23,10 +23,10 @@
 #include "stm32f4x7_eth.h"
 #include "netconf.h"
 #include "main.h"
+#include "uart.h"
 #include "FreeRTOS.h"
 #include "task.h"
 #include "lwip/tcpip.h"
-#include "serial_debug.h"
 #include "stm32f4_discovery.h"
 
 /* Private typedef -----------------------------------------------------------*/
@@ -90,11 +90,9 @@ int main(void)
        To reconfigure the default setting of SystemInit() function, refer to
        system_stm32f4xx.c file
      */
+  uart_init(115200);
 
-#ifdef SERIAL_DEBUG
-  DebugComPort_Init();
-#endif
-  
+
   /*Initialize LCD and Leds */ 
   LCD_LED_Init();
   
