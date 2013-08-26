@@ -10,6 +10,6 @@
 [submodule "doc/lwip-contrib"]
 	path = doc/lwip-contrib
 	url = git://git.savannah.nongnu.org/lwip/lwip-contrib.git
-[submodule "lib/FreeRTOSV7.4.2"]
-	path = lib/FreeRTOSV7.4.2
+[submodule "lib/FreeRTOS"]
+	path = lib/FreeRTOS
 	url = https://github.com/tbraunP/FreeRTOS.git
