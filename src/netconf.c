@@ -120,8 +120,12 @@ void LwIP_DHCP_task(void * pvParameters)
   struct ip_addr netmask;
   struct ip_addr gw;
   uint32_t IPaddress;
+ 
+#ifdef USE_LCD 
   uint8_t iptab[4];
   uint8_t iptxt[20];
+#endif
+
   uint8_t DHCP_state;  
   DHCP_state = DHCP_START;
 

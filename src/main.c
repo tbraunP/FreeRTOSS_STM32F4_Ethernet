@@ -110,11 +110,11 @@ int main(void)
 
 #ifdef USE_DHCP
   /* Start DHCPClient */
-  xTaskCreate(LwIP_DHCP_task, "DHCPClient", configMINIMAL_STACK_SIZE * 2, NULL,DHCP_TASK_PRIO, NULL);
+  xTaskCreate(LwIP_DHCP_task, (const signed char * const) "DHCPClient", configMINIMAL_STACK_SIZE * 2, NULL,DHCP_TASK_PRIO, NULL);
 #endif
     
   /* Start toogleLed4 task : Toggle LED4  every 250ms */
-  xTaskCreate(ToggleLed4, "LED4", configMINIMAL_STACK_SIZE, NULL, LED_TASK_PRIO, NULL);
+  xTaskCreate(ToggleLed4, (const signed char * const) "LED4", configMINIMAL_STACK_SIZE, NULL, LED_TASK_PRIO, NULL);
   
   /* Start scheduler */
   vTaskStartScheduler();
