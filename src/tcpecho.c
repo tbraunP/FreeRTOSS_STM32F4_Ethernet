@@ -30,7 +30,7 @@
  *
  */
 
-
+#include <stdio.h>
 #include "lwip/opt.h"
 
 #if LWIP_NETCONN
