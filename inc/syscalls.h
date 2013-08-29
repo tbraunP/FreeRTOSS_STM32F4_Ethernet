@@ -10,9 +10,8 @@
 #include <sys/stat.h>
 #include <sys/time.h>
 
-
 #ifdef __cplusplus
- extern "C" {
+extern "C" {
 #endif
 
 void _exit(int code);
@@ -39,7 +38,7 @@ void __malloc_lock(struct _reent *r);
 void __malloc_unlock(struct _reent *r);
 
 #ifdef __cplusplus
- }
+}
 #endif
 
 #endif
