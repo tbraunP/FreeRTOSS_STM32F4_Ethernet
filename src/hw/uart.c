@@ -123,13 +123,14 @@ void UART_poll_send(const char *ch) {
 void UART_init(int baudrate) {
 	// allocate memory
 	rb_alloc((ringbuf_t*) &uart_state.tx_buf, TX_SIZE);
+    uart_state.dmaRunning = false;
+    uart_state.mutex = xSemaphoreCreateMutex();
 
 	// Enable peripheral clocks
 	RCC->AHB1ENR |= RCC_AHB1Periph_GPIOB;
 	RCC->APB2ENR |= RCC_APB2Periph_USART1;
 
 	// Initialize Serial Port
-	//
 	GPIO_Init(GPIOB, &(GPIO_InitTypeDef ) { .GPIO_Pin = GPIO_Pin_6,
 					.GPIO_Speed = GPIO_Speed_50MHz, .GPIO_Mode = GPIO_Mode_AF,
 					.GPIO_OType = GPIO_OType_PP });

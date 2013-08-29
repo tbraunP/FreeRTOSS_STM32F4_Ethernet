@@ -20,6 +20,9 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include <stdio.h>
+
+
 #include "stm32f4x7_eth.h"
 #include "netconf.h"
 #include "main.h"
@@ -96,6 +99,9 @@ int main(void)
        system_stm32f4xx.c file
      */
   UART_init(115200);
+
+
+  printf("Running Ethernet Demo\n");
 
 
   /*Initialize LCD and Leds */ 
