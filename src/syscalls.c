@@ -100,14 +100,15 @@ int _getpid_r(struct _reent *r)
     return -1;
 }
 
+volatile uint8_t lock = 0;
 
-void __malloc_lock(struct _reent *r)
-{
-    vPortEnterCritical();
+void __malloc_lock(struct _reent *r) {
+    __disable_irq();
+    ++lock;
 }
 
-
-void __malloc_unlock(struct _reent *r)
-{
-    vPortExitCritical();
+void __malloc_unlock(struct _reent *r) {
+	--lock;
+    if(lock == 0)
+        __enable_irq();
 }
