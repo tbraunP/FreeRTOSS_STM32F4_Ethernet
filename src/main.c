@@ -23,11 +23,16 @@
 #include "stm32f4x7_eth.h"
 #include "netconf.h"
 #include "main.h"
-#include "uart.h"
+#include "hw/uart.h"
+#include "stm32f4_discovery.h"
+
+// FreeRTOS
 #include "FreeRTOS.h"
 #include "task.h"
+
+// lwIP
 #include "lwip/tcpip.h"
-#include "stm32f4_discovery.h"
+
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -90,7 +95,7 @@ int main(void)
        To reconfigure the default setting of SystemInit() function, refer to
        system_stm32f4xx.c file
      */
-  uart_init(115200);
+  UART_init(115200);
 
 
   /*Initialize LCD and Leds */ 

@@ -1,5 +1,5 @@
 #include "syscalls.h"
-#include "uart.h"
+#include "hw/uart.h"
 #include "stm32f4xx.h"
 #include "FreeRTOS.h"
 #include <unistd.h>
@@ -20,13 +20,13 @@ void _exit(int code)
 
 ssize_t _read_r(struct _reent *r, int fd, void *ptr, size_t len)
 {
-    return uart_read_r(r, fd, ptr, len);
+    return UART_read_r(r, fd, ptr, len);
 }
 
 
 ssize_t _write_r(struct _reent *r, int fd, const void *ptr, size_t len)
 {
-    return uart_write_r(r, fd, ptr, len);
+    return UART_write_r(r, fd, ptr, len);
 }
 
 
