@@ -43,7 +43,7 @@ static inline void startDMAFromBuffer() {
 	uart_state.dmaRunning = true;
 }
 
-void DMA2_Channel7_IRQHandler() {
+void DMA2_Stream7_IRQHandler(void) {
 	DMA_Cmd(USART_TX_DMA, DISABLE);
 	DMA_ClearITPendingBit(USART_TX_DMA, DMA_IT_TCIF7);
 
