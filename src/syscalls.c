@@ -85,12 +85,9 @@ int _getpid_r(struct _reent *r) {
 volatile uint8_t lock = 0;
 
 void __malloc_lock(struct _reent *r) {
-	__disable_irq();
-	++lock;
+	vPortEnterCritical();
 }
 
 void __malloc_unlock(struct _reent *r) {
-	--lock;
-	if (lock == 0)
-		__enable_irq();
+	vPortExitCritical();
 }

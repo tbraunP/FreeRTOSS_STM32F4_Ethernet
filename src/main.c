@@ -23,9 +23,9 @@
 #include <stdio.h>
 
 
+#include "main.h"
 #include "stm32f4x7_eth.h"
 #include "netconf.h"
-#include "main.h"
 #include "hw/uart.h"
 #include "stm32f4_discovery.h"
 
@@ -78,7 +78,7 @@ void ToggleLed4(void * pvParameters)
       for( ;; )
       {
         /* toggle LED4 each 250ms */
-        STM_EVAL_LEDToggle(LED4);
+        STM_EVAL_LEDToggle(LED1);
         vTaskDelay(250);
       }
     }
@@ -98,11 +98,9 @@ int main(void)
        To reconfigure the default setting of SystemInit() function, refer to
        system_stm32f4xx.c file
      */
-  UART_init(115200);
+  //UART_init(115200);
 
-
-  printf("Running Ethernet Demo\n");
-
+ //printf("Running Ethernet Demo\n");
 
   /*Initialize LCD and Leds */ 
   LCD_LED_Init();
@@ -117,7 +115,7 @@ int main(void)
   tcpecho_init();
   
   /* Initialize udp echo server */
-  udpecho_init();
+  //udpecho_init();
 
 #ifdef USE_DHCP
   /* Start DHCPClient */
