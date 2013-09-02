@@ -108,9 +108,11 @@ int rb_read(ringbuf_t *rb, uint8_t *data, int len) {
 	if (rb->pos + len1 >= rb->bufsize) {
 		int len2 = (rb->pos + len1) - rb->bufsize;
 		len1 -= len2;
-		memcpy((char*) data + len1, rb->buf, len2);
+		if(len2 > 0)
+		  memcpy((uint8_t*) (data + len1), rb->buf, len2);
 	}
-	memcpy(data, rb->buf + rb->pos, len1);
+	if(len1 > 0)
+	  memcpy(data, rb->buf + rb->pos, len1);
 
 	rb->len -= len;
 	rb->pos += len;
@@ -131,18 +133,20 @@ int rb_read(ringbuf_t *rb, uint8_t *data, int len) {
  */
 int rb_write(ringbuf_t *rb, const uint8_t *data, int len) {
 	vPortEnterCritical();
-	if (len > rb->bufsize - rb->len)
+	if (len > (rb->bufsize - rb->len))
 		len = rb->bufsize - rb->len;
 
 	int len1 = len;
 	if (rb->pos + rb->len + len1 >= rb->bufsize) {
 		int len2 = (rb->pos + rb->len + len1) - rb->bufsize;
 		len1 -= len2;
-		memcpy(rb->buf, (char*) data + len1, len2);
+		if(len2 > 0)
+		  memcpy(rb->buf, (uint8_t*) (data + len1), len2);
 	}
+	if(len1 > 0)
+	  memcpy(rb->buf + rb->pos + rb->len, data, len1);
 
-	memcpy(rb->buf + rb->pos + rb->len, data, len1);
-
+	// update length
 	rb->len += len;
 	vPortExitCritical();
 	return len;
