@@ -82,10 +82,13 @@ static inline size_t rb_getc(ringbuf_t *rb, uint8_t* data) {
  */
 static inline bool rb_peek_Offset(ringbuf_t *rb, uint8_t* data, uint16_t offset) {
 	if (!rb->len)
-		return 0;
+		return false;
 
 	vPortEnterCritical();
 	int pos = rb->pos+offset;
+	
+	if(offset >= rb->len)
+	  return false;
 	
 	while (pos >= rb->bufsize){
 		pos -= rb->bufsize;
@@ -93,8 +96,36 @@ static inline bool rb_peek_Offset(ringbuf_t *rb, uint8_t* data, uint16_t offset)
 	*data = rb->buf[pos];
 
 	vPortExitCritical();
-	return 1;
+	return true;
 }
+
+/**
+ * Read a single byte from a buffer using a position offset, without modifing the buffer
+ *
+ * \param   rb    pointer to ringbuffer struct
+ * \param   offset offset to actual position
+ * \return  value
+ */
+static inline uint8_t rb_peek(ringbuf_t *rb, uint16_t offset) {
+	if (!rb->len)
+		return 0;
+
+	vPortEnterCritical();
+	uint8_t data;
+	int pos = rb->pos+offset;
+	
+	if(offset >= rb->len)
+	  return 0;
+	
+	while (pos >= rb->bufsize){
+		pos -= rb->bufsize;
+	}
+	data = rb->buf[pos];
+
+	vPortExitCritical();
+	return data;
+}
+
 
 /**
  * Write a single byte to a buffer
