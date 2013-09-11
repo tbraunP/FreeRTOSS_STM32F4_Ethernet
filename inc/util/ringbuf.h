@@ -2,6 +2,7 @@
 #define RINGBUF_H
 
 #include <stdint.h>
+#include <stdbool.h>
 #include <string.h>
 #include "FreeRTOS.h"
 
@@ -11,9 +12,9 @@
  */
 typedef struct ringbuf_t {
 	uint8_t* buf;          ///< Pointer to buffer memory
-	int bufsize;      ///< Size of buffer memory
-	volatile int pos;   ///< Current read position
-	volatile int len;   ///< Length of data in buffer
+	size_t bufsize;      ///< Size of buffer memory
+	volatile size_t pos;   ///< Current read position
+	volatile size_t len;   ///< Length of data in buffer
 } ringbuf_t;
 
 /**
@@ -23,7 +24,7 @@ typedef struct ringbuf_t {
  * \param   bufsize requested buffer size
  * \return  size of allocated buffer
  */
-static inline int rb_alloc(ringbuf_t *rb, int bufsize) {
+static inline size_t rb_alloc(ringbuf_t *rb, size_t bufsize) {
 	rb->buf = malloc(bufsize);
 	if (!rb->buf)
 		bufsize = 0;
@@ -56,7 +57,7 @@ static inline void rb_free(ringbuf_t *rb) {
  * \param   data  pointer to data byte
  * \return  number of bytes read (0 if buffer was empty)
  */
-static inline int rb_getc(ringbuf_t *rb, uint8_t* data) {
+static inline size_t rb_getc(ringbuf_t *rb, uint8_t* data) {
 	if (!rb->len)
 		return 0;
 
@@ -72,13 +73,37 @@ static inline int rb_getc(ringbuf_t *rb, uint8_t* data) {
 }
 
 /**
+ * Read a single byte from a buffer using a position offset, without modifing the buffer
+ *
+ * \param   rb    pointer to ringbuffer struct
+ * \param   data  pointer to data byte
+ * \param   offset offset to actual position
+ * \return  true if successfull readout
+ */
+static inline bool rb_peek_Offset(ringbuf_t *rb, uint8_t* data, uint16_t offset) {
+	if (!rb->len)
+		return 0;
+
+	vPortEnterCritical();
+	int pos = rb->pos+offset;
+	
+	while (pos >= rb->bufsize){
+		pos -= rb->bufsize;
+	}
+	*data = rb->buf[pos];
+
+	vPortExitCritical();
+	return 1;
+}
+
+/**
  * Write a single byte to a buffer
  *
  * \param   rb    pointer to ringbuffer struct
  * \param   data  pointer to data byte
  * \return  number of bytes written (0 if buffer was full)
  */
-static inline int rb_putc(ringbuf_t *rb, const char data) {
+static inline size_t rb_putc(ringbuf_t *rb, const char data) {
 	if (rb->len >= rb->bufsize)
 		return 0;
 
@@ -99,7 +124,7 @@ static inline int rb_putc(ringbuf_t *rb, const char data) {
  * Read from a buffer
  *
  */
-int rb_read(ringbuf_t *rb, uint8_t *data, int len) {
+static inline size_t rb_read(ringbuf_t *rb, uint8_t *data, size_t len) {
 	vPortEnterCritical();
 	if (len > rb->len)
 		len = rb->len;
@@ -131,7 +156,7 @@ int rb_read(ringbuf_t *rb, uint8_t *data, int len) {
  * \return  number of bytes written (0 if buffer was full)
  *
  */
-int rb_write(ringbuf_t *rb, const uint8_t *data, int len) {
+static inline size_t rb_write(ringbuf_t *rb, const uint8_t *data, size_t len) {
 	vPortEnterCritical();
 	if (len > (rb->bufsize - rb->len))
 		len = rb->bufsize - rb->len;

@@ -2218,8 +2218,7 @@
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 	<storageModule moduleId="org.eclipse.cdt.core.pathentry">
-		<pathentry excluding="**/CMakeFiles/" kind="out" path=""/>
-		<pathentry kind="src" path=""/>
+		<pathentry excluding="lib/FreeRTOS/FreeRTOS/Demo|lib/PeriphLib|lib/CMSIS|lib/FreeRTOS/FreeRTOS-Plus" kind="src" path=""/>
 		<pathentry include="/home/pyro/Projekte/STM32F4Tools/EclipseWorkspace/FreeRTOSS_STM32F4_Ethernet/lib/STM32F4_LIB_CMSIS/inc" kind="inc" path="" system="true"/>
 		<pathentry include="/home/pyro/Projekte/STM32F4Tools/EclipseWorkspace/FreeRTOSS_STM32F4_Ethernet/lib/STM32F4_LIB_PeriphLib/inc" kind="inc" path="" system="true"/>
 		<pathentry include="/home/pyro/Projekte/STM32F4Tools/EclipseWorkspace/FreeRTOSS_STM32F4_Ethernet/lib/FreeRTOS/FreeRTOS/Source/include" kind="inc" path="" system="true"/>
@@ -2234,5 +2233,6 @@
 		<pathentry include="/home/pyro/Projekte/STM32F4Tools/EclipseWorkspace/FreeRTOSS_STM32F4_Ethernet/src" kind="inc" path="" system="true"/>
 		<pathentry include="/home/pyro/Projekte/STM32F4Tools/EclipseWorkspace/FreeRTOSS_STM32F4_Ethernet/lib/CMSIS/inc" kind="inc" path="" system="true"/>
 		<pathentry include="/home/pyro/Projekte/STM32F4Tools/EclipseWorkspace/FreeRTOSS_STM32F4_Ethernet/lib/PeriphLib/inc" kind="inc" path="" system="true"/>
+		<pathentry excluding="**/CMakeFiles/" kind="out" path=""/>
 	</storageModule>
 </cproject>
